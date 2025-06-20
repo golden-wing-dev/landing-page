@@ -1,17 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import GlobalStyles from './styles/GlobalStyles';
 import Header from './components/layout/Header';
-import Hero from './components/sections/Hero';
-import Apps from './components/sections/Apps';
-import About from './components/sections/About';
-import Contact from './components/sections/Contact';
-import AppModal from './components/apps/AppModal';
+import HomePage from './components/pages/HomePage';
+import AppPage from './components/apps/AppPage';
 import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [currentApp, setCurrentApp] = useState(null);
-
   const scrollToSection = (e, sectionId) => {
     e.preventDefault();
     const section = document.getElementById(sectionId);
@@ -23,40 +18,18 @@ function App() {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    alert('Thank you for your message! We will get back to you soon.');
-  };
-
-  const openModal = (e, app) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setCurrentApp(app);
-    setModalOpen(true);
-    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
-  };
-
-  const closeModal = () => {
-    setModalOpen(false);
-    document.body.style.overflow = 'auto'; // Re-enable scrolling
-  };
-
   return (
     <ThemeProvider>
-      <div className="App">
-        <GlobalStyles />
-        <Header scrollToSection={scrollToSection} />
-        <Hero scrollToSection={scrollToSection} />
-        <Apps openModal={openModal} />
-        <About />
-        <Contact handleSubmit={handleSubmit} />
-        <AppModal 
-          isOpen={modalOpen} 
-          app={currentApp} 
-          onClose={closeModal} 
-        />
-      </div>
+      <Router>
+        <div className="App">
+          <GlobalStyles />
+          <Header scrollToSection={scrollToSection} />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/apps/:appId" element={<AppPage />} />
+          </Routes>
+        </div>
+      </Router>
     </ThemeProvider>
   );
 }

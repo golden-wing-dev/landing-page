@@ -24,7 +24,7 @@ const AppGrid = styled.div`
   padding: 0 20px;
 `;
 
-const Apps = ({ openModal }) => {
+const Apps = () => {
   return (
     <AppsSection id="apps">
       <Container>
@@ -35,7 +35,6 @@ const Apps = ({ openModal }) => {
               key={app.id}
               app={app}
               index={index}
-              openModal={openModal}
             />
           ))}
         </AppGrid>

@@ -2,10 +2,13 @@
   --primary-color: #B8860B; /* Dark goldenrod - rusted shiny gold */
   --secondary-color: #DAA520; /* Goldenrod - lighter gold */
   --accent-color: #FFD700; /* Gold - bright accent */
+  --hover-color: #9A7209; /* Darker gold for hover states */
   --text-color: #2d3436;
   --light-text: #636e72;
   --background: #ffffff;
   --light-background: #f5f6fa;
+  --card-background: #ffffff;
+  --border-color: rgba(0, 0, 0, 0.1);
 }
 
 * {

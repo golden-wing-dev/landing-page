@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
 
 const AppCardContainer = styled(motion.div)`
@@ -13,15 +14,20 @@ const AppCardContainer = styled(motion.div)`
   };
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  cursor: ${props => props.isComingSoon ? 'default' : 'pointer'};
   border: 1px solid var(--border-color);
+  opacity: ${props => props.isComingSoon ? '0.7' : '1'};
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: ${props => props.isDarkMode ? 
-      '0 10px 20px rgba(0, 0, 0, 0.3)' : 
-      '0 10px 20px rgba(0, 0, 0, 0.15)'
-    };
+    transform: ${props => props.isComingSoon ? 'none' : 'translateY(-5px)'};
+    box-shadow: ${props => {
+      if (props.isComingSoon) return props.isDarkMode ? 
+        '0 4px 6px rgba(0, 0, 0, 0.2)' : 
+        '0 4px 6px rgba(0, 0, 0, 0.1)';
+      return props.isDarkMode ? 
+        '0 10px 20px rgba(0, 0, 0, 0.3)' : 
+        '0 10px 20px rgba(0, 0, 0, 0.15)';
+    }};
   }
 `;
 
@@ -48,7 +54,7 @@ const AppLogo = styled.div`
   }
 
   &:hover {
-    transform: scale(1.05);
+    transform: ${props => props.isComingSoon ? 'none' : 'scale(1.05)'};
   }
 `;
 
@@ -77,7 +83,7 @@ const AppDescription = styled.p`
   hyphens: auto;
 `;
 
-const AppLink = styled.a`
+const AppLink = styled(Link)`
   display: block;
   padding: 0.75rem 1.5rem;
   background: var(--primary-color);
@@ -87,6 +93,7 @@ const AppLink = styled.a`
   transition: all 0.3s ease;
   border: none;
   text-align: center;
+  text-decoration: none;
 
   &:hover {
     background: var(--hover-color);
@@ -94,20 +101,67 @@ const AppLink = styled.a`
   }
 `;
 
-const AppCard = ({ app, index, openModal }) => {
+const DisabledButton = styled.div`
+  display: block;
+  padding: 0.75rem 1.5rem;
+  background: ${props => props.isDarkMode ? 
+    'rgba(45, 52, 54, 0.5)' : 
+    'rgba(0, 0, 0, 0.1)'
+  };
+  color: ${props => props.isDarkMode ? 
+    'rgba(255, 255, 255, 0.5)' : 
+    'rgba(0, 0, 0, 0.4)'
+  };
+  border-radius: 5px;
+  font-weight: 500;
+  text-align: center;
+  cursor: not-allowed;
+  user-select: none;
+`;
+
+const ExternalLink = styled.a`
+  display: block;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    background: var(--hover-color);
+    transform: translateY(-2px);
+  }
+`;
+
+const AppCard = ({ app, index }) => {
   const { isDarkMode } = useTheme();
+  const isComingSoon = app.status === 'coming-soon';
+
+  const handleCardClick = (e) => {
+    if (isComingSoon) {
+      e.preventDefault();
+      e.stopPropagation();
+    } else if (app.url && !e.target.closest('a')) {
+      // Only open external URL if clicking on card but not on buttons
+      window.open(app.url, '_blank');
+    }
+  };
 
   return (
     <AppCardContainer
       isDarkMode={isDarkMode}
+      isComingSoon={isComingSoon}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.2 }}
       viewport={{ once: true }}
-      onClick={() => app.url && window.open(app.url, '_blank')}
-      style={{ opacity: app.id.includes('coming-soon') ? 0.7 : 1 }}
+      onClick={handleCardClick}
     >
-      <AppLogo isDarkMode={isDarkMode}>
+      <AppLogo isDarkMode={isDarkMode} isComingSoon={isComingSoon}>
         <img 
           src={app.logo} 
           alt={`${app.title} Logo`} 
@@ -125,14 +179,16 @@ const AppCard = ({ app, index, openModal }) => {
       <AppDescription isDarkMode={isDarkMode}>
         {app.description}
       </AppDescription>
-      <AppLink 
-        href={app.url || "#"} 
-        onClick={(e) => openModal(e, app)}
-        target={app.url ? "_blank" : undefined}
-        rel={app.url ? "noopener noreferrer" : undefined}
-      >
-        Learn More
-      </AppLink>
+      
+      {isComingSoon ? (
+        <DisabledButton isDarkMode={isDarkMode}>
+          Coming Soon
+        </DisabledButton>
+      ) : (
+        <AppLink to={`/apps/${app.id}`}>
+          Learn More
+        </AppLink>
+      )}
     </AppCardContainer>
   );
 };

@@ -3,6 +3,7 @@ import { FaRobot, FaCode, FaMobile, FaCloud, FaShoppingBag } from 'react-icons/f
 const apps = [
   {
     id: 'dresscode',
+    status: 'active',
     title: 'Dresscode AI',
     description: 'An AI-powered fashion recommendation app that helps users discover their perfect style based on personal preferences and body type.',
     logo: '/images/logos/dresscode-logo.png',
@@ -18,6 +19,7 @@ const apps = [
   },
   {
     id: 'coming-soon-1',
+    status: 'coming-soon',
     title: 'Coming Soon',
     description: 'We\'re working on exciting new AI applications. Stay tuned for more innovative solutions from Seagull Technologies.',
     logo: '/images/logos/coming-soon-logo.png',
@@ -33,6 +35,7 @@ const apps = [
   },
   {
     id: 'coming-soon-2',
+    status: 'coming-soon',
     title: 'Coming Soon',
     description: 'We\'re working on exciting new AI applications. Stay tuned for more innovative solutions from Seagull Technologies.',
     logo: '/images/logos/coming-soon-logo.png',
