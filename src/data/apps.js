@@ -9,6 +9,8 @@ const apps = [
     logo: '/images/logos/dresscode-logo.png',
     icon: <FaShoppingBag />,
     url: 'https://dresscode.ai',
+    videoUrl: null,
+    videoPoster: null,
     features: [
       'Personalized style recommendations based on body type and preferences',
       'Outfit style suggestions based on use history and AI applications',
@@ -18,12 +20,14 @@ const apps = [
     longDescription: 'Dresscode AI is your personal style assistant that helps you improve your fashion choices through AI-powered feedback. Simply upload photos of your outfits and receive detailed suggestions on how to enhance your look. The app tracks your style journey over time, maintaining a digital wardrobe of your outfits and showing your progress as you refine your personal style. With more exciting features in development, Dresscode AI aims to be your go-to fashion companion for building confidence in your clothing choices.'
   },
   {
-    id: 'coming-soon-1',
-    status: 'coming-soon',
-    title: 'Coming Soon',
+    id: 'album-ai',
+    status: 'active',
+    title: 'Album AI',
     description: 'We\'re working on exciting new AI applications. Stay tuned for more innovative solutions from Seagull Technologies.',
-    logo: '/images/logos/coming-soon-logo.png',
+    logo: '/images/logos/album-ai-logo.png',
     icon: <FaRobot />,
+    videoUrl: null,
+    videoPoster: null,
     features: [
       'Innovative AI technology',
       'User-friendly interface',
@@ -40,6 +44,8 @@ const apps = [
     description: 'We\'re working on exciting new AI applications. Stay tuned for more innovative solutions from Seagull Technologies.',
     logo: '/images/logos/coming-soon-logo.png',
     icon: <FaCloud />,
+    videoUrl: null,
+    videoPoster: null,
     features: [
       'Innovative AI technology',
       'User-friendly interface',

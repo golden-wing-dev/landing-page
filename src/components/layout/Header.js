@@ -18,34 +18,6 @@ const HeaderContainer = styled.header`
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(
-      circle at center,
-      ${props => props.isDarkMode ? 
-        'rgba(9, 132, 227, 0.15) 0%, rgba(0, 184, 148, 0.1) 30%, rgba(30, 39, 46, 0) 70%' :
-        'rgba(9, 132, 227, 0.1) 0%, rgba(0, 184, 148, 0.05) 30%, rgba(255, 255, 255, 0) 70%'
-      }
-    );
-    z-index: -1;
-    animation: rotate 15s linear infinite;
-  }
-  
-  @keyframes rotate {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
 `;
 
 const Nav = styled.nav`
