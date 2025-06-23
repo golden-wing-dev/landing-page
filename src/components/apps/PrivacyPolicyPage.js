@@ -1,0 +1,291 @@
+import React from 'react';
+import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
+import { useParams, Navigate, Link } from 'react-router-dom';
+import { FaArrowLeft } from 'react-icons/fa';
+import { useTheme } from '../../context/ThemeContext';
+import apps from '../../data/apps';
+import Container from '../layout/Container';
+
+const PolicyPageContainer = styled.div`
+  min-height: calc(100vh - 80px);
+  padding-top: 120px;
+  padding-bottom: 80px;
+  background: var(--background);
+`;
+
+const ReturnButton = styled(Link)`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  
+  &:hover {
+    color: var(--hover-color);
+    transform: translateX(-5px);
+  }
+  
+  svg {
+    font-size: 0.9rem;
+  }
+`;
+
+const PolicyHeader = styled.div`
+  text-align: center;
+  margin-bottom: 3rem;
+`;
+
+const AppIconContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+`;
+
+const AppIcon = styled.div`
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: ${props => props.isDarkMode ? 
+    'rgba(45, 52, 54, 0.5)' : 
+    'rgba(255, 255, 255, 0.8)'
+  };
+  border-radius: 12px;
+  padding: 0;
+  box-shadow: ${props => props.isDarkMode ? 
+    '0 4px 12px rgba(0, 0, 0, 0.3)' : 
+    '0 4px 12px rgba(0, 0, 0, 0.15)'
+  };
+  overflow: hidden;
+  border: 1px solid ${props => props.isDarkMode ? 
+    'rgba(255, 255, 255, 0.1)' : 
+    'rgba(0, 0, 0, 0.05)'
+  };
+  backdrop-filter: blur(10px);
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+`;
+
+const AppTitle = styled.h1`
+  font-size: 2.5rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+`;
+
+const PolicyTitle = styled.h2`
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  font-weight: 500;
+`;
+
+const PolicyContent = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
+  background: ${props => props.isDarkMode ? 
+    'rgba(45, 52, 54, 0.5)' : 
+    'rgba(255, 255, 255, 0.8)'
+  };
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: ${props => props.isDarkMode ? 
+    '0 8px 32px rgba(0, 0, 0, 0.3)' : 
+    '0 8px 32px rgba(0, 0, 0, 0.1)'
+  };
+  backdrop-filter: blur(10px);
+  border: 1px solid ${props => props.isDarkMode ? 
+    'rgba(255, 255, 255, 0.1)' : 
+    'rgba(0, 0, 0, 0.05)'
+  };
+`;
+
+const Section = styled.div`
+  margin-bottom: 2rem;
+  
+  h3 {
+    color: var(--text-color);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--light-text);
+    margin-bottom: 1rem;
+    opacity: ${props => props.isDarkMode ? '0.9' : '1'};
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    font-size: 1.1rem;
+    color: var(--light-text);
+    opacity: ${props => props.isDarkMode ? '0.9' : '1'};
+    margin-bottom: 0.8rem;
+    padding-left: 1.2rem;
+    position: relative;
+    line-height: 1.6;
+    
+    &:before {
+      content: "•";
+      color: var(--primary-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+`;
+
+const LastUpdated = styled.p`
+  font-size: 0.9rem;
+  color: var(--light-text);
+  opacity: 0.7;
+  text-align: center;
+  margin-top: 2rem;
+  font-style: italic;
+`;
+
+const PrivacyPolicyPage = () => {
+  const { appId } = useParams();
+  const { isDarkMode } = useTheme();
+  
+  const app = apps.find(a => a.id === appId);
+  
+  if (!app || app.status === 'coming-soon') {
+    return <Navigate to="/" replace />;
+  }
+
+  return (
+    <PolicyPageContainer>
+      <Container>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <ReturnButton to={`/apps/${app.id}`}>
+            <FaArrowLeft /> Return to {app.title}
+          </ReturnButton>
+
+          <PolicyHeader>
+            <AppIconContainer>
+              <AppIcon isDarkMode={isDarkMode}>
+                <img 
+                  src={app.logo} 
+                  alt={`${app.title} Logo`} 
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                  }} 
+                />
+              </AppIcon>
+            </AppIconContainer>
+            <AppTitle>{app.title}</AppTitle>
+            <PolicyTitle>Privacy Policy</PolicyTitle>
+          </PolicyHeader>
+
+          <PolicyContent isDarkMode={isDarkMode}>
+            <Section isDarkMode={isDarkMode}>
+              <h3>Introduction</h3>
+              <p>
+                We are committed to protecting your privacy and ensuring the security of your personal information. 
+                This privacy policy outlines how we collect, use, and protect your data when you use {app.title}.
+              </p>
+            </Section>
+
+            <Section isDarkMode={isDarkMode}>
+              <h3>Information We Collect</h3>
+              <p>We collect information to provide better services to our users. The types of information we collect include:</p>
+              <ul>
+                <li>Personal information you provide when creating an account</li>
+                <li>Usage data to improve our services and user experience</li>
+                <li>Device information for technical support and optimization</li>
+                <li>Location data if explicitly permitted by you</li>
+              </ul>
+            </Section>
+
+            <Section isDarkMode={isDarkMode}>
+              <h3>How We Use Your Information</h3>
+              <p>We use the collected information for the following purposes:</p>
+              <ul>
+                <li>To provide and maintain our service</li>
+                <li>To notify you about changes to our service</li>
+                <li>To provide customer support</li>
+                <li>To gather analysis or valuable information to improve our service</li>
+                <li>To monitor the usage of our service</li>
+                <li>To detect, prevent and address technical issues</li>
+              </ul>
+            </Section>
+
+            <Section isDarkMode={isDarkMode}>
+              <h3>Data Protection</h3>
+              <p>We implement appropriate security measures to protect your personal information:</p>
+              <ul>
+                <li>Your data is encrypted and stored securely</li>
+                <li>We use industry-standard security protocols</li>
+                <li>Access to your data is limited to authorized personnel only</li>
+                <li>Regular security audits and updates are performed</li>
+                <li>We comply with GDPR and other applicable privacy regulations</li>
+              </ul>
+            </Section>
+
+            <Section isDarkMode={isDarkMode}>
+              <h3>Your Rights</h3>
+              <p>You have the following rights regarding your personal data:</p>
+              <ul>
+                <li>The right to access your personal data</li>
+                <li>The right to rectification of inaccurate data</li>
+                <li>The right to erasure of your data</li>
+                <li>The right to restrict processing</li>
+                <li>The right to data portability</li>
+                <li>The right to object to processing</li>
+              </ul>
+            </Section>
+
+            <Section isDarkMode={isDarkMode}>
+              <h3>Third-Party Services</h3>
+              <p>
+                We do not share your personal information with third parties except as described in this policy. 
+                We may use third-party services for analytics and crash reporting to improve our service quality.
+              </p>
+            </Section>
+
+            <Section isDarkMode={isDarkMode}>
+              <h3>Contact Us</h3>
+              <p>
+                If you have any questions about this Privacy Policy, please contact us at privacy@seagulltechnologies.com
+              </p>
+            </Section>
+
+            <LastUpdated isDarkMode={isDarkMode}>
+              Last updated: {new Date().toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+              })}
+            </LastUpdated>
+          </PolicyContent>
+        </motion.div>
+      </Container>
+    </PolicyPageContainer>
+  );
+};
+
+export default PrivacyPolicyPage; 

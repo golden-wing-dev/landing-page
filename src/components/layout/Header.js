@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
 
 const HeaderContainer = styled.header`
@@ -34,6 +35,7 @@ const Logo = styled.h1`
   color: var(--text-color);
   margin: 0;
   position: relative;
+  cursor: pointer;
   
   &::after {
     content: '';
@@ -134,11 +136,24 @@ const ThemeToggle = styled.button`
 
 const Header = ({ scrollToSection }) => {
   const { isDarkMode, toggleTheme } = useTheme();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleLogoClick = () => {
+    if (location.pathname !== '/') {
+      navigate('/');
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <HeaderContainer isDarkMode={isDarkMode}>
       <Nav>
-        <Logo>Seagull Technologies</Logo>
+        <Logo onClick={handleLogoClick}>Seagull Technologies</Logo>
         <NavLinks>
           <div className="nav-items">
             <NavLink href="#apps" onClick={(e) => scrollToSection(e, 'apps')}>Our Apps</NavLink>
