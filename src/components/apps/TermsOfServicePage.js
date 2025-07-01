@@ -231,8 +231,56 @@ const TermsOfServicePage = () => {
                 <li>Not attempt to gain unauthorized access to any part of the service</li>
                 <li>Not upload or transmit viruses or other harmful code</li>
                 <li>Respect the intellectual property rights of others</li>
+                {app.id === 'threemonths' && (
+                  <>
+                    <li>Set realistic and achievable goals that are legal and ethical</li>
+                    <li>Take personal responsibility for your goal-setting journey and outcomes</li>
+                    <li>Use the app's recommendations as guidance, not as guaranteed results</li>
+                    <li>Not input goals that involve illegal activities or harm to others</li>
+                  </>
+                )}
+                {app.id === 'album-ai' && (
+                  <>
+                    <li>Only upload photos that you own or have permission to use</li>
+                    <li>Not upload images containing illegal, harmful, or inappropriate content</li>
+                    <li>Respect copyright and intellectual property rights when sharing albums</li>
+                    <li>Not use the service to create images that could mislead or deceive others</li>
+                    <li>Take responsibility for how you share and distribute created albums</li>
+                  </>
+                )}
               </ul>
             </Section>
+
+            {app.id === 'threemonths' && (
+              <Section isDarkMode={isDarkMode}>
+                <h3>Goal-Setting Disclaimer</h3>
+                <p>Important information about using {app.title} for goal achievement:</p>
+                <ul>
+                  <li>The app provides suggestions and guidance, but success depends on your personal effort and commitment</li>
+                  <li>We do not guarantee that you will achieve your goals within the specified timeframe</li>
+                  <li>Individual results may vary based on personal circumstances, effort, and external factors</li>
+                  <li>The app is not a substitute for professional advice in health, finance, career, or other specialized areas</li>
+                  <li>You should consult relevant professionals for goals requiring expert guidance</li>
+                  <li>We are not responsible for decisions you make based on the app's recommendations</li>
+                </ul>
+              </Section>
+            )}
+
+            {app.id === 'album-ai' && (
+              <Section isDarkMode={isDarkMode}>
+                <h3>AI Photo Processing Disclaimer</h3>
+                <p>Important information about using {app.title} for photo transformation:</p>
+                <ul>
+                  <li>AI transformation results may vary in quality and accuracy depending on input image quality</li>
+                  <li>We do not guarantee perfect reproduction or transformation of your images</li>
+                  <li>The artistic styles are AI-generated interpretations and may not match exact artistic techniques</li>
+                  <li>Processing times may vary based on image complexity and server capacity</li>
+                  <li>Some uploaded images may not be suitable for certain transformation styles</li>
+                  <li>You are responsible for ensuring you have rights to all images you upload and transform</li>
+                  <li>We are not liable for any issues arising from transformed images you create or share</li>
+                </ul>
+              </Section>
+            )}
 
             <Section isDarkMode={isDarkMode}>
               <h3>Service Availability</h3>
@@ -253,6 +301,24 @@ const TermsOfServicePage = () => {
                 <li>You may not reproduce, distribute, or create derivative works without permission</li>
                 <li>You retain rights to content you create and share through our service</li>
                 <li>You grant us license to use your content as necessary to provide our service</li>
+                {app.id === 'threemonths' && (
+                  <>
+                    <li>Your personal goals and progress data remain your intellectual property</li>
+                    <li>We only use your goal data to provide personalized recommendations to you</li>
+                    <li>We may use anonymized, aggregated data to improve the service for all users</li>
+                    <li>You can request deletion of all your goal and progress data at any time</li>
+                  </>
+                )}
+                {app.id === 'album-ai' && (
+                  <>
+                    <li>You retain full ownership and copyright of your original uploaded photos</li>
+                    <li>You own the AI-transformed versions of your photos created through our service</li>
+                    <li>We do not claim ownership of your photos or transformed images</li>
+                    <li>You grant us temporary license to process your photos solely for transformation purposes</li>
+                    <li>You are responsible for ensuring you have rights to upload and transform all images</li>
+                    <li>You can delete your photos and albums at any time, removing our processing license</li>
+                  </>
+                )}
               </ul>
             </Section>
 

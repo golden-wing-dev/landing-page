@@ -8,12 +8,27 @@ const HeroSection = styled.section`
   display: flex;
   align-items: center;
   padding: 100px 0;
-  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+  background: url('/images/seagull-dev-background.png') center center/cover no-repeat,
+              linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
   color: white;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
 `;
 
 const HeroContent = styled.div`
   max-width: 600px;
+  position: relative;
+  z-index: 2;
 `;
 
 const Title = styled(motion.h1)`

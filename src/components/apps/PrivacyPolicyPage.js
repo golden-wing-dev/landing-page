@@ -218,6 +218,23 @@ const PrivacyPolicyPage = () => {
                 <li>Usage data to improve our services and user experience</li>
                 <li>Device information for technical support and optimization</li>
                 <li>Location data if explicitly permitted by you</li>
+                {app.id === 'threemonths' && (
+                  <>
+                    <li>Goal and objective information you input into the app</li>
+                    <li>Progress tracking data and completion metrics</li>
+                    <li>Daily task and habit completion records</li>
+                    <li>Personal preferences for goal-setting and scheduling</li>
+                  </>
+                )}
+                {app.id === 'album-ai' && (
+                  <>
+                    <li>Photos and images you upload to the service</li>
+                    <li>Metadata associated with your uploaded images (file size, format, etc.)</li>
+                    <li>Album creation preferences and style selections</li>
+                    <li>Sharing settings and activity for your created albums</li>
+                    <li>AI processing results and transformed images</li>
+                  </>
+                )}
               </ul>
             </Section>
 
@@ -231,8 +248,57 @@ const PrivacyPolicyPage = () => {
                 <li>To gather analysis or valuable information to improve our service</li>
                 <li>To monitor the usage of our service</li>
                 <li>To detect, prevent and address technical issues</li>
+                {app.id === 'threemonths' && (
+                  <>
+                    <li>To generate personalized daily tasks and recommendations for your goals</li>
+                    <li>To track your progress and provide motivational insights</li>
+                    <li>To optimize goal timelines and difficulty based on your completion patterns</li>
+                    <li>To provide analytics about your goal achievement patterns (anonymized)</li>
+                  </>
+                )}
+                {app.id === 'album-ai' && (
+                  <>
+                    <li>To process your uploaded photos using AI transformation algorithms</li>
+                    <li>To generate artistic versions of your images in various styles</li>
+                    <li>To create and compile albums from your transformed photos</li>
+                    <li>To enable sharing functionality for your created albums</li>
+                    <li>To improve our AI models and transformation quality (with explicit consent)</li>
+                  </>
+                )}
               </ul>
             </Section>
+
+            {app.id === 'threemonths' && (
+              <Section isDarkMode={isDarkMode}>
+                <h3>Goal and Progress Data Protection</h3>
+                <p>Your personal goals and progress data are treated with special care:</p>
+                <ul>
+                  <li>Goal content and progress data are encrypted both in transit and at rest</li>
+                  <li>Your goals are never shared with third parties or used for advertising</li>
+                  <li>We do not analyze individual goal content - only aggregated, anonymized patterns</li>
+                  <li>You can export all your goal and progress data at any time</li>
+                  <li>Deleting your account permanently removes all goal-related data</li>
+                  <li>We use your progress data solely to improve your personal experience</li>
+                </ul>
+              </Section>
+            )}
+
+            {app.id === 'album-ai' && (
+              <Section isDarkMode={isDarkMode}>
+                <h3>Photo and Image Data Protection</h3>
+                <p>Your uploaded photos and personal images receive the highest level of protection:</p>
+                <ul>
+                  <li>All uploaded photos are encrypted both during upload and storage</li>
+                  <li>Your original and transformed images are never shared with third parties</li>
+                  <li>Photos are automatically deleted from our servers after 30 days unless saved to your account</li>
+                  <li>We do not use your personal photos to train AI models without explicit opt-in consent</li>
+                  <li>You retain full ownership and copyright of your original and transformed images</li>
+                  <li>Album sharing is controlled entirely by you - only people with your shared links can view albums</li>
+                  <li>You can permanently delete all your photos and albums at any time</li>
+                  <li>Facial recognition data is processed locally and never stored on our servers</li>
+                </ul>
+              </Section>
+            )}
 
             <Section isDarkMode={isDarkMode}>
               <h3>Data Protection</h3>
