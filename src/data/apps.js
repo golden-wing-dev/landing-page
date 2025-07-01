@@ -1,4 +1,4 @@
-import { FaRobot, FaCode, FaMobile, FaCloud, FaShoppingBag, FaBullseye } from 'react-icons/fa';
+import { FaRobot, FaCode, FaMobile, FaCloud, FaShoppingBag, FaBullseye, FaUserTie } from 'react-icons/fa';
 
 const apps = [
   {
@@ -38,6 +38,28 @@ const apps = [
       'Goal adjustment and optimization based on your progress'
     ],
     longDescription: '3 Months is your personal goal achievement companion that transforms big dreams into manageable daily actions. The app helps you set realistic three-month goals and creates a personalized roadmap of small, achievable steps you can take every day to reach your objectives. Whether you want to learn a new skill, build healthy habits, advance your career, or work on personal projects, 3 Months breaks down your goals into daily bite-sized tasks that fit into your schedule. With progress tracking, milestone celebrations, and adaptive recommendations, the app keeps you motivated and on track to achieve meaningful results in just three months.'
+  },
+  {
+    id: 'class-ai',
+    status: 'active',
+    title: 'Class AI',
+    description: 'Learn elegance, refinement, and social grace with AI-powered coaching. Master old money etiquette, sophisticated manners, and cultural sophistication to elevate your social presence.',
+    logo: '/images/logos/class-ai-logo.png',
+    icon: <FaUserTie />,
+    url: null,
+    videoUrl: null,
+    videoPoster: null,
+    features: [
+      'AI-powered etiquette and manners training',
+      'Old money lifestyle habits and sophisticated behavior patterns',
+      'Social situation coaching and conversation skills',
+      'Cultural refinement and intellectual sophistication',
+      'Elegant dress codes and styling guidance',
+      'Fine dining etiquette and social protocol',
+      'Networking skills for high-society environments',
+      'Personalized refinement journey based on your goals'
+    ],
+    longDescription: 'Class AI is your personal refinement coach, designed to help you develop the elegance, sophistication, and social grace associated with old money culture and high society. Through AI-powered lessons and personalized coaching, you\'ll learn timeless etiquette, sophisticated manners, cultural refinement, and the subtle social skills needed to navigate elite circles with confidence. The app covers everything from proper dining etiquette and conversation skills to dress codes, social protocols, and the refined behaviors that characterize truly classy individuals. Whether you\'re preparing for important social events, advancing your career, or simply want to cultivate personal elegance, Class AI provides the knowledge and guidance to help you develop authentic sophistication and social poise.'
   },
   {
     id: 'album-ai',

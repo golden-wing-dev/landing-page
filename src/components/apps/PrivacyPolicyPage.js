@@ -235,6 +235,16 @@ const PrivacyPolicyPage = () => {
                     <li>AI processing results and transformed images</li>
                   </>
                 )}
+                {app.id === 'class-ai' && (
+                  <>
+                    <li>Learning progress and etiquette assessment results</li>
+                    <li>Social situation preferences and refinement goals</li>
+                    <li>Behavioral improvement tracking and milestone achievements</li>
+                    <li>Cultural interests and sophistication preferences</li>
+                    <li>Style and dress code preferences for guidance</li>
+                    <li>Social challenge areas and coaching focus topics</li>
+                  </>
+                )}
               </ul>
             </Section>
 
@@ -263,6 +273,16 @@ const PrivacyPolicyPage = () => {
                     <li>To create and compile albums from your transformed photos</li>
                     <li>To enable sharing functionality for your created albums</li>
                     <li>To improve our AI models and transformation quality (with explicit consent)</li>
+                  </>
+                )}
+                {app.id === 'class-ai' && (
+                  <>
+                    <li>To provide personalized etiquette and refinement coaching</li>
+                    <li>To assess your current sophistication level and create tailored lessons</li>
+                    <li>To track your progress in developing elegant behaviors and social skills</li>
+                    <li>To recommend appropriate cultural activities and social protocols</li>
+                    <li>To generate personalized style and behavioral guidance</li>
+                    <li>To provide situation-specific coaching for social scenarios</li>
                   </>
                 )}
               </ul>
@@ -296,6 +316,23 @@ const PrivacyPolicyPage = () => {
                   <li>Album sharing is controlled entirely by you - only people with your shared links can view albums</li>
                   <li>You can permanently delete all your photos and albums at any time</li>
                   <li>Facial recognition data is processed locally and never stored on our servers</li>
+                </ul>
+              </Section>
+            )}
+
+            {app.id === 'class-ai' && (
+              <Section isDarkMode={isDarkMode}>
+                <h3>Social and Behavioral Data Protection</h3>
+                <p>Your refinement journey and social development data are treated with utmost confidentiality:</p>
+                <ul>
+                  <li>All learning progress and behavioral assessments are encrypted and securely stored</li>
+                  <li>Your social preferences and refinement goals are never shared with third parties</li>
+                  <li>Personal coaching sessions and progress tracking remain completely private</li>
+                  <li>We do not analyze individual behavioral data for any purpose other than your coaching</li>
+                  <li>Social situation assessments are used solely to improve your personal experience</li>
+                  <li>You can export all your coaching data and progress history at any time</li>
+                  <li>Deleting your account permanently removes all behavioral and social data</li>
+                  <li>Cultural and lifestyle preferences are never used for marketing or advertising</li>
                 </ul>
               </Section>
             )}

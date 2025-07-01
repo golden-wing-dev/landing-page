@@ -248,6 +248,16 @@ const TermsOfServicePage = () => {
                     <li>Take responsibility for how you share and distribute created albums</li>
                   </>
                 )}
+                {app.id === 'class-ai' && (
+                  <>
+                    <li>Use the guidance provided for self-improvement and personal refinement only</li>
+                    <li>Apply social skills and etiquette lessons with cultural sensitivity and respect</li>
+                    <li>Not use the app to misrepresent yourself or engage in deceptive social behavior</li>
+                    <li>Respect that elegance and class come from authentic personal development</li>
+                    <li>Take personal responsibility for your social interactions and behavior</li>
+                    <li>Understand that social acceptance depends on genuine character, not just learned behaviors</li>
+                  </>
+                )}
               </ul>
             </Section>
 
@@ -278,6 +288,23 @@ const TermsOfServicePage = () => {
                   <li>Some uploaded images may not be suitable for certain transformation styles</li>
                   <li>You are responsible for ensuring you have rights to all images you upload and transform</li>
                   <li>We are not liable for any issues arising from transformed images you create or share</li>
+                </ul>
+              </Section>
+            )}
+
+            {app.id === 'class-ai' && (
+              <Section isDarkMode={isDarkMode}>
+                <h3>Social Refinement and Coaching Disclaimer</h3>
+                <p>Important information about using {app.title} for social and behavioral development:</p>
+                <ul>
+                  <li>Social skills and etiquette guidance are educational tools, not guarantees of social acceptance</li>
+                  <li>Individual results may vary significantly based on personal effort, authenticity, and social context</li>
+                  <li>The app provides general refinement principles that may not apply to all cultural or social situations</li>
+                  <li>True elegance and class come from genuine character development, not just learned behaviors</li>
+                  <li>We do not guarantee entry into specific social circles or communities</li>
+                  <li>Social acceptance depends on many factors beyond etiquette and manners</li>
+                  <li>The app is not a substitute for professional social coaching or cultural consultation</li>
+                  <li>You are responsible for applying social guidance appropriately and respectfully in your context</li>
                 </ul>
               </Section>
             )}
@@ -317,6 +344,16 @@ const TermsOfServicePage = () => {
                     <li>You grant us temporary license to process your photos solely for transformation purposes</li>
                     <li>You are responsible for ensuring you have rights to upload and transform all images</li>
                     <li>You can delete your photos and albums at any time, removing our processing license</li>
+                  </>
+                )}
+                {app.id === 'class-ai' && (
+                  <>
+                    <li>Your personal refinement journey and progress data remain your property</li>
+                    <li>We retain ownership of our educational content, coaching methodologies, and etiquette curricula</li>
+                    <li>You may use learned skills and knowledge for personal development and social interactions</li>
+                    <li>We do not claim ownership of your behavioral improvements or social achievements</li>
+                    <li>You can export your learning progress and coaching history at any time</li>
+                    <li>Coaching content and methodologies are proprietary and protected by intellectual property laws</li>
                   </>
                 )}
               </ul>
