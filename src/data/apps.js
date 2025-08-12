@@ -28,7 +28,7 @@ const apps = [
     icon: <FaBaby />,
     url: null,
     videoUrl: null,
-    videoPoster: null, 
+    videoPoster: null,
     features: [
       'Comprehensive baby care logging (photos, milestones, growth tracking)',
       'Feeding and sleep pattern monitoring and analysis',
