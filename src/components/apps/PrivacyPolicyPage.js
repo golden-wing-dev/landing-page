@@ -245,6 +245,16 @@ const PrivacyPolicyPage = () => {
                     <li>Social challenge areas and coaching focus topics</li>
                   </>
                 )}
+                {app.id === 'cuddlr' && (
+                  <>
+                    <li>Baby photos, growth measurements, and milestone documentation</li>
+                    <li>Feeding schedules, sleep patterns, and health tracking data</li>
+                    <li>Developmental milestones and progress tracking</li>
+                    <li>Family information and baby care preferences</li>
+                    <li>AI interaction history and personalized guidance requests</li>
+                    <li>Health and wellness data for personalized recommendations</li>
+                  </>
+                )}
               </ul>
             </Section>
 
@@ -283,6 +293,16 @@ const PrivacyPolicyPage = () => {
                     <li>To recommend appropriate cultural activities and social protocols</li>
                     <li>To generate personalized style and behavioral guidance</li>
                     <li>To provide situation-specific coaching for social scenarios</li>
+                  </>
+                )}
+                {app.id === 'cuddlr' && (
+                  <>
+                    <li>To provide personalized baby care guidance and expert advice</li>
+                    <li>To track your baby's growth, development, and health patterns</li>
+                    <li>To generate insights and recommendations based on logged data</li>
+                    <li>To create personalized feeding and sleep schedule recommendations</li>
+                    <li>To document and preserve precious baby milestones and memories</li>
+                    <li>To provide evidence-based baby care information and support</li>
                   </>
                 )}
               </ul>
@@ -333,6 +353,25 @@ const PrivacyPolicyPage = () => {
                   <li>You can export all your coaching data and progress history at any time</li>
                   <li>Deleting your account permanently removes all behavioral and social data</li>
                   <li>Cultural and lifestyle preferences are never used for marketing or advertising</li>
+                </ul>
+              </Section>
+            )}
+
+            {app.id === 'cuddlr' && (
+              <Section isDarkMode={isDarkMode}>
+                <h3>Baby and Family Data Protection</h3>
+                <p>Your baby's information and family data receive the highest level of protection and privacy:</p>
+                <ul>
+                  <li>All baby photos, growth data, and health information are encrypted and securely stored</li>
+                  <li>Your baby's personal information is never shared with third parties or used for advertising</li>
+                  <li>Family data and baby care preferences remain completely private and confidential</li>
+                  <li>We do not analyze individual baby data for any purpose other than providing personalized care guidance</li>
+                  <li>AI interactions and guidance requests are used solely to improve your baby care experience</li>
+                  <li>You can export all your baby's data, photos, and care history at any time</li>
+                  <li>Deleting your account permanently removes all baby and family data from our servers</li>
+                  <li>Baby photos and personal information are never used to train AI models without explicit consent</li>
+                  <li>Health and development data is processed locally when possible to maximize privacy</li>
+                  <li>We comply with all applicable child privacy protection laws and regulations</li>
                 </ul>
               </Section>
             )}

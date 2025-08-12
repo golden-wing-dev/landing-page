@@ -258,6 +258,17 @@ const TermsOfServicePage = () => {
                     <li>Understand that social acceptance depends on genuine character, not just learned behaviors</li>
                   </>
                 )}
+                {app.id === 'cuddlr' && (
+                  <>
+                    <li>Use the app for legitimate baby care and parenting purposes only</li>
+                    <li>Provide accurate and truthful information about your baby's health and development</li>
+                    <li>Not use the app to replace professional medical advice when needed</li>
+                    <li>Take responsibility for your baby's care decisions and consult healthcare professionals when appropriate</li>
+                    <li>Only upload photos of your own baby or babies you have permission to document</li>
+                    <li>Use AI guidance as supportive information, not as a substitute for professional medical care</li>
+                    <li>Respect your baby's privacy and only share information you're comfortable with</li>
+                  </>
+                )}
               </ul>
             </Section>
 
@@ -309,6 +320,25 @@ const TermsOfServicePage = () => {
               </Section>
             )}
 
+            {app.id === 'cuddlr' && (
+              <Section isDarkMode={isDarkMode}>
+                <h3>Baby Care and Medical Disclaimer</h3>
+                <p>Important information about using {app.title} for baby care and parenting:</p>
+                <ul>
+                  <li>The app provides general baby care guidance and information, not medical advice</li>
+                  <li>AI recommendations are educational tools and should not replace professional medical consultation</li>
+                  <li>Individual baby development varies significantly - consult healthcare professionals for medical concerns</li>
+                  <li>We do not guarantee specific health outcomes or development milestones</li>
+                  <li>The app is not a substitute for regular pediatric care or emergency medical attention</li>
+                  <li>Always consult qualified healthcare professionals for medical decisions about your baby</li>
+                  <li>Emergency situations require immediate professional medical attention, not app guidance</li>
+                  <li>You are responsible for making appropriate healthcare decisions for your baby</li>
+                  <li>Growth and development tracking is for informational purposes and should be discussed with your pediatrician</li>
+                  <li>Feeding and sleep recommendations should be adapted to your baby's individual needs and medical advice</li>
+                </ul>
+              </Section>
+            )}
+
             <Section isDarkMode={isDarkMode}>
               <h3>Service Availability</h3>
               <p>We strive to provide consistent service availability, however:</p>
@@ -354,6 +384,18 @@ const TermsOfServicePage = () => {
                     <li>We do not claim ownership of your behavioral improvements or social achievements</li>
                     <li>You can export your learning progress and coaching history at any time</li>
                     <li>Coaching content and methodologies are proprietary and protected by intellectual property laws</li>
+                  </>
+                )}
+                {app.id === 'cuddlr' && (
+                  <>
+                    <li>You retain full ownership of all baby photos, videos, and personal family content you upload</li>
+                    <li>Your baby's health data, growth records, and care history remain your property</li>
+                    <li>We retain ownership of our AI baby care guidance system and educational content</li>
+                    <li>You can export all your baby's data, photos, and care records at any time</li>
+                    <li>We do not claim ownership of your baby's personal information or family data</li>
+                    <li>Baby care methodologies and AI guidance systems are proprietary and protected</li>
+                    <li>You grant us temporary license to process your baby's data solely for providing personalized care guidance</li>
+                    <li>You can delete all baby data at any time, removing our processing license</li>
                   </>
                 )}
               </ul>
